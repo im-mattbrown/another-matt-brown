@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex w-full justify-between mb-20">
           <h4 className="text-with-me">Work with me</h4>
           <h4 className="text-with-me underline underline-offset-8">
-            m@mononestud.io
+            m@monomstud.io
           </h4>
         </div>
         <div className="horizontal-divide mb-20"></div>
