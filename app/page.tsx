@@ -5,9 +5,15 @@ import { Linden_Hill } from "next/font/google";
 import Link from "next/link";
 import { useRef, useState } from "react";
 
+interface Paragraph {
+  text: string;
+  className?: string;
+  boldWords?: string[];
+}
+
 export default function Home() {
   // Enhanced component for sequential paragraph animation with animated bold words
-  function SequentialScrollText({ paragraphs }) {
+  function SequentialScrollText({ paragraphs }: { paragraphs: Paragraph[] }) {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
       target: containerRef,
@@ -85,7 +91,11 @@ export default function Home() {
       </div>
     );
   }
-  function ScrollAnimatedParagraphs({ paragraphs }) {
+  function ScrollAnimatedParagraphs({
+    paragraphs,
+  }: {
+    paragraphs: Paragraph[];
+  }) {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
       target: containerRef,
