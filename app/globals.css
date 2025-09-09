@@ -1,0 +1,849 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+:root {
+  --foreground-rgb: 250, 250, 250;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --font-rgb: 26, 26, 26;
+  --font-light: 136, 138, 139;
+
+  --font-badly-stuffed: "Badly Stuffed Animal", cursive, sans-serif;
+
+  --container-margin: 55px;
+  --gutter-width: 20px;
+  --total-columns: 12;
+
+  /* Calculate available content width */
+  --content-width: calc(100vw - (2 * var(--container-margin)));
+
+  /* Calculate single column width */
+  --single-column-width: calc(
+    (var(--content-width) - (11 * var(--gutter-width))) / 12
+  );
+
+  --single-column-w-gap: calc(
+    ((var(--content-width) - (11 * var(--gutter-width))) / 12) +
+      var(--gutter-width)
+  );
+
+  /* Calculate column span widths */
+  --span-width-1: calc(
+    (1 * var(--single-column-width)) + (0 * var(--gutter-width))
+  );
+  --span-width-2: calc(
+    (2 * var(--single-column-width)) + (1 * var(--gutter-width))
+  );
+  --span-width-3: calc(
+    (3 * var(--single-column-width)) + (2 * var(--gutter-width))
+  );
+  --span-width-4: calc(
+    (4 * var(--single-column-width)) + (3 * var(--gutter-width))
+  );
+  --span-width-5: calc(
+    (5 * var(--single-column-width)) + (4 * var(--gutter-width))
+  );
+  --span-width-6: calc(
+    (6 * var(--single-column-width)) + (5 * var(--gutter-width))
+  );
+  --span-width-7: calc(
+    (7 * var(--single-column-width)) + (6 * var(--gutter-width))
+  );
+  --span-width-8: calc(
+    (8 * var(--single-column-width)) + (7 * var(--gutter-width))
+  );
+  --span-width-10: calc(
+    (10 * var(--single-column-width)) + (9 * var(--gutter-width))
+  );
+  ]--span-width-11: calc(
+    (11 * var(--single-column-width)) + (10 * var(--gutter-width))
+  );
+  --span-width-12: calc(
+    (12 * var(--single-column-width)) + (11 * var(--gutter-width))
+  );
+
+  --font-2-col: calc(var(--span-width-2) * 0.2331);
+  --font-3-col: calc(var(--span-width-3) * 0.2331);
+  --font-4-col: calc(var(--span-width-4) * 0.2331);
+  --font-5-col: calc(var(--span-width-5) * 0.2331);
+  --font-6-col: calc(var(--span-width-6) * 0.2331);
+  --font-7-col: calc(var(--span-width-7) * 0.2331);
+  --font-8-col: calc(var(--span-width-8) * 0.2331);
+
+  --font-amb: calc(var(--span-width-2) * 0.187);
+
+  --font-ai: calc(var(--span-width-12) * 0.0495);
+  --font-approach: calc(var(--span-width-7) * 0.066);
+  --font-work: calc(var(--span-width-6) * 0.318);
+  --font-work-history: calc(var(--span-width-7) * 0.0735);
+  --font-see-all: calc(var(--span-width-2) * 0.17);
+  --font-native: calc(var(--span-width-4) * 0.106);
+  --font-with-me: calc(var(--span-width-6) * 0.051);
+  --font-name: calc(var(--span-width-2) * 0.38);
+  --font-copy: calc(var(--span-width-1) * 0.33);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 250, 250, 250;
+    --background-start-rgb: 250, 250, 250;
+    --background-end-rgb: 250, 250, 250;
+    --font-rgb: 26, 26, 26;
+  }
+}
+
+body {
+  color: rgb(var(--font-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Suisse Intl Font Faces */
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/fonts/SuisseIntl-Light.woff2") format("woff2"),
+    url("/fonts/SuisseIntl-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/fonts/SuisseIntl-Regular.woff2") format("woff2"),
+    url("/fonts/SuisseIntl-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/fonts/SuisseIntl-Medium.woff2") format("woff2"),
+    url("/fonts/SuisseIntl-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/fonts/SuisseIntl-SemiBold.woff2") format("woff2"),
+    url("/fonts/SuisseIntl-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Suisse Intl";
+  src: url("/fonts/SuisseIntl-Bold.woff2") format("woff2"),
+    url("/fonts/SuisseIntl-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Badly Stuffed Animal";
+  src: url("/fonts/badlystuffedanimal.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Variable for Suisse Intl */
+:root {
+  --font-suisse: "Suisse Intl", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    system-ui, sans-serif;
+}
+
+/* Custom utility class */
+.font-suisse {
+  font-family: var(--font-suisse);
+}
+
+.font-badly-stuffed {
+  font-family: var(--font-badly-stuffed);
+}
+
+/* Navigation Styles */
+
+.nav-approach {
+  display: flex;
+  width: 197px;
+  height: 49px;
+  padding: 14px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0 0 24px 0;
+  border: 3px solid #1a1a1a;
+  background: #fafafa;
+  box-shadow: 3px 3px 0 0 #000;
+}
+
+.nav-contact {
+  display: flex;
+  width: 197px;
+  height: 49px;
+  padding: 14px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px 0 0 0;
+  border: 3px solid #1a1a1a;
+  background: #fafafa;
+  box-shadow: 3px 3px 0 0 #000;
+}
+
+.nav-case {
+  display: flex;
+  width: 197px;
+  height: 49px;
+  padding: 14px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0 24px 0 0;
+  border: 3px solid #1a1a1a;
+  background: #fafafa;
+  box-shadow: 3px 3px 0 0 #000;
+}
+
+.nav-active {
+  background: #1a1a1a;
+  color: #fafafa;
+  box-shadow: none;
+}
+
+/* LAYOUT */
+
+.full-height {
+  height: calc(100vh - 113px);
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.position-center {
+  position: relative;
+  top: calc(
+    50% - 56.5px
+  ); /* 50% minus half of nav height (113px ÷ 2 = 56.5px) */
+  transform: translateY(-50%);
+}
+
+.bottom {
+  justify-self: flex-end;
+}
+/* MARGINS */
+
+.m-1-g {
+  margin-right: var(--gutter-width);
+}
+
+/* Text Colors */
+.text-light {
+  color: rgb(var(--font-light));
+}
+/* Text Colors */
+
+.sticky-image {
+  position: sticky;
+  top: 20px; /* Distance from top when sticky */
+  z-index: 10;
+}
+
+/* FONT SIZING STYLES */
+
+.text-ai {
+  font-size: var(--font-ai);
+  width: var(--span-width-12);
+  line-height: 1.2;
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-amb {
+  font-size: var(--font-amb);
+  width: var(--span-width-6);
+  line-height: 1.2;
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-approach {
+  font-size: var(--font-approach);
+  width: var(--span-width-7);
+  line-height: 1.2;
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-work {
+  font-size: var(--font-work);
+  width: var(--span-width-7);
+  line-height: var(--font-work);
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-with-me {
+  font-size: var(--font-with-me);
+  /* width: var(--span-width-6); */
+  line-height: var(--font-with-me);
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-name {
+  font-size: var(--font-name);
+  /* width: var(--span-width-6); */
+  line-height: var(--font-name);
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-66 {
+  font-size: var(--font-work-history);
+  width: var(--span-width-6);
+  line-height: var(--font-work-history);
+  font-weight: bold;
+  letter-spacing: 0;
+}
+
+.text-native {
+  font-size: var(--font-native);
+  width: var(--span-width-4);
+  line-height: 1.2;
+  font-weight: bold;
+  letter-spacing: 0;
+}
+
+.text-see-all {
+  font-size: var(--font-see-all);
+  width: var(--span-width-2);
+  line-height: 1.2;
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-copy {
+  font-size: var(--font-copy);
+  width: var(--span-width-1);
+  line-height: 1.2;
+  font-weight: medium;
+  letter-spacing: 0;
+}
+
+.text-2-columns {
+  font-size: var(--font-2-col);
+  width: var(--span-width-2);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-3-columns {
+  font-size: var(--font-3-col);
+  width: var(--span-width-3);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-4-columns {
+  font-size: var(--font-4-col);
+  width: var(--span-width-4);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-5-columns {
+  font-size: var(--font-5-col);
+  width: var(--span-width-5);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-6-columns {
+  font-size: var(--font-6-col);
+  width: var(--span-width-6);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-7-columns {
+  font-size: var(--font-7-col);
+  width: var(--span-width-7);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.text-8-columns {
+  font-size: var(--font-8-col);
+  width: var(--span-width-8);
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.height-64 {
+  height: 64px;
+  width: auto;
+}
+
+.width-4-columns {
+  width: var(--span-width-4);
+}
+
+.width-1-column {
+  width: var(--span-width-1);
+}
+
+.columns-2 {
+  width: var(--span-width-2);
+}
+
+.columns-3 {
+  width: var(--span-width-3);
+}
+
+.columns-4 {
+  width: var(--span-width-4);
+}
+
+.columns-5 {
+  width: var(--span-width-5);
+}
+
+.columns-6 {
+  width: var(--span-width-6);
+}
+
+.columns-7 {
+  width: var(--span-width-7);
+}
+
+.columns-8 {
+  width: var(--span-width-8);
+}
+
+.columns-10 {
+  width: var(--span-width-10);
+}
+
+.columns-11 {
+  width: var(--span-width-11);
+}
+
+.gap-1 {
+  margin-left: var(--single-column-w-gap);
+}
+
+.gap-2 {
+  margin-left: var(--single-column-w-gap) * 2;
+}
+
+.gap-gutter {
+  margin-left: var(--gutter-width);
+}
+
+.gap-gutter-2 {
+  margin-left: var(--gutter-width) * 2;
+}
+
+.gap-3 {
+  margin-left: calc(var(--single-column-w-gap) * 3);
+}
+
+.gap-flex-2 {
+  margin-left: calc(var(--single-column-w-gap) + var(--gutter-width));
+}
+
+.gap-flex-1 {
+  margin-left: calc(var(--single-column-w-gap) + var(--gutter-width));
+}
+
+.mb-38 {
+  margin-bottom: 9.5rem;
+}
+
+.mb-36 {
+  margin-bottom: 9rem;
+}
+
+.mh-work-history {
+  height: 236px;
+}
+
+.pb-footer {
+  padding-bottom: 240px;
+}
+
+.pb-work {
+  padding-bottom: 384px;
+}
+
+.pb-seeAll {
+  padding-bottom: 192px;
+}
+
+/* SHADOW */
+
+.base-shadow {
+  box-shadow: 0 16px 54px 0 rgba(26, 31, 29, 0.03),
+    0 5.1px 17px 0 rgba(26, 31, 29, 0.05),
+    0 1.9px 6.5px 0 rgba(26, 31, 29, 0.05),
+    0 0.63px 2.16px 0 rgba(26, 31, 29, 0.05);
+}
+
+.slick-shadow {
+  box-shadow: 0 5.1px 17px 0 rgba(26, 31, 29, 0.05),
+    0 1.9px 6.5px 0 rgba(26, 31, 29, 0.05),
+    0 0.63px 2.16px 0 rgba(26, 31, 29, 0.05);
+}
+
+.bg-work-history {
+  background-color: #f5f5f5;
+}
+
+/* FOOTER CLASSES */
+
+.horizontal-divide {
+  height: 2px;
+  background-color: #b2b2b2;
+  width: 100%;
+}
+
+/* FOOTER CLASSES */
+
+/* slick slider  */
+/* Custom Slick Slider Styles */
+
+.bg-contexto {
+  background-color: #345995;
+}
+.bg-curated {
+  background-color: #d5962f;
+}
+
+.slick-slide {
+  height: auto;
+}
+
+.slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+/* Custom dots styling */
+.slick-dots {
+  bottom: -50px;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.slick-dots li {
+  width: 25% !important;
+  height: 2px !important;
+  margin: 0 !important;
+}
+
+.slick-list {
+  background-color: transparent;
+}
+
+.aspect-video {
+  aspect-ratio: 16/16 !important;
+}
+
+.slick-dots li button {
+  width: 100% !important;
+  height: 2px !important;
+  padding: 0 !important;
+  background-color: #b2b2b2 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.slick-dots li button:before {
+  display: none !important;
+}
+
+.slick-dots li.slick-active button {
+  background-color: #1a1a1a !important;
+}
+
+/* Custom arrow styling */
+.slick-prev,
+.slick-next {
+  border-radius: 27px !important;
+  border: 1px solid #888a8b !important;
+  background: #fafafa !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  display: none !important; /* Hide default arrows */
+}
+
+.slick-prev {
+  left: -40px;
+  background-image: url("/images/icons/right-arrow.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 16px 16px !important; /* Adjust size as needed */
+  transform: rotate(-180deg) !important;
+}
+
+.slick-next {
+  right: -40px;
+  transform: translate(15px, 0%) !important;
+  background-image: url("/images/icons/right-arrow.svg") !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 16px 16px !important; /* Adjust size as needed */
+}
+
+.custom-slider-container {
+  position: relative !important;
+  padding-bottom: 70px !important;
+}
+
+.custom-slider-container .slick-dots {
+  bottom: -45px !important;
+  left: 0 !important;
+  width: 89% !important;
+  text-align: left !important;
+  position: absolute !important;
+}
+
+.custom-slider-container .slick-prev,
+.custom-slider-container .slick-next {
+  bottom: -64px !important;
+  top: auto !important;
+  z-index: 10 !important;
+  position: absolute !important;
+}
+
+.custom-slider-container .slick-prev {
+  right: 73px !important;
+  left: auto !important;
+}
+
+.custom-slider-container .slick-next {
+  right: 40px !important;
+}
+
+.slider-logo {
+  width: 24px;
+  margin-right: 8px;
+}
+
+/* GRIIIIIIIDD CSS THROW AWAY AFTER!!!! */
+
+/* 12-COLUMN GRID OVERLAY */
+
+.show-grid {
+  position: relative;
+}
+
+.show-grid::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 55px;
+  right: 55px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* Grid system variables */
+  --grid-margin: 55px;
+  --grid-gutter: 20px;
+  --grid-color: rgba(255, 0, 0, 0.05);
+
+  /* Calculate column width */
+  --grid-content-width: calc(100vw - (2 * var(--grid-margin)));
+  --grid-column-width: calc(
+    (var(--grid-content-width) - (11 * var(--grid-gutter))) / 12
+  );
+
+  /* Create 12 column background */
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--grid-color) 0,
+    var(--grid-color) var(--grid-column-width),
+    transparent var(--grid-column-width),
+    transparent calc(var(--grid-column-width) + var(--grid-gutter))
+  );
+  background-size: calc(var(--grid-column-width) + var(--grid-gutter)) 100%;
+}
+
+/* Alternative version with column borders instead of fills */
+.show-grid-lines {
+  position: relative;
+}
+
+.show-grid-lines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 55px;
+  right: 55px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  --grid-margin: 55px;
+  --grid-gutter: 20px;
+  --grid-color: rgba(255, 0, 0, 0.3);
+  --grid-content-width: calc(100vw - (2 * var(--grid-margin)));
+  --grid-column-width: calc(
+    (var(--grid-content-width) - (11 * var(--grid-gutter))) / 12
+  );
+
+  /* Create vertical lines for column boundaries */
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent var(--grid-column-width),
+    var(--grid-color) var(--grid-column-width),
+    var(--grid-color) calc(var(--grid-column-width) + 1px),
+    transparent calc(var(--grid-column-width) + 1px),
+    transparent calc(var(--grid-column-width) + var(--grid-gutter))
+  );
+  background-size: calc(var(--grid-column-width) + var(--grid-gutter)) 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .show-grid::before,
+  .show-grid-lines::before {
+    left: 20px;
+    right: 20px;
+    --grid-margin: 20px;
+    --grid-gutter: 16px;
+    --grid-content-width: calc(100vw - (2 * var(--grid-margin)));
+    --grid-column-width: calc(
+      (var(--grid-content-width) - (11 * var(--grid-gutter))) / 12
+    );
+  }
+}
+
+@media (max-width: 480px) {
+  .show-grid::before,
+  .show-grid-lines::before {
+    left: 16px;
+    right: 16px;
+    --grid-margin: 16px;
+    --grid-gutter: 12px;
+    --grid-content-width: calc(100vw - (2 * var(--grid-margin)));
+    --grid-column-width: calc(
+      (var(--grid-content-width) - (11 * var(--grid-gutter))) / 12
+    );
+  }
+}
+
+/* Toggle class for easy debugging */
+.debug-grid .show-grid::before,
+.debug-grid .show-grid-lines::before {
+  display: block;
+}
+
+/* Keyboard shortcut helper (optional) */
+body.show-grid-overlay .show-grid::before {
+  display: block;
+}
+
+/* More prominent version for debugging */
+.show-grid-debug {
+  position: relative;
+}
+
+.show-grid-debug::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 55px;
+  right: 55px;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  --grid-margin: 55px;
+  --grid-gutter: 20px;
+  --grid-color-fill: rgba(255, 0, 0, 0.05);
+  --grid-color-line: rgba(255, 0, 0, 0.2);
+  --grid-content-width: calc(100vw - (2 * var(--grid-margin)));
+  --grid-column-width: calc(
+    (var(--grid-content-width) - (11 * var(--grid-gutter))) / 12
+  );
+
+  /* Combine fills and lines */
+  background-image: 
+    /* Column fills */ repeating-linear-gradient(
+      to right,
+      var(--grid-color-fill) 0,
+      var(--grid-color-fill) var(--grid-column-width),
+      transparent var(--grid-column-width),
+      transparent calc(var(--grid-column-width) + var(--grid-gutter))
+    ),
+    /* Column lines */
+      repeating-linear-gradient(
+        to right,
+        transparent 0,
+        transparent var(--grid-column-width),
+        var(--grid-color-line) var(--grid-column-width),
+        var(--grid-color-line) calc(var(--grid-column-width) + 1px),
+        transparent calc(var(--grid-column-width) + 1px),
+        transparent calc(var(--grid-column-width) + var(--grid-gutter))
+      );
+  background-size: calc(var(--grid-column-width) + var(--grid-gutter)) 100%;
+}
+
+/* Label overlay to show column numbers */
+.show-grid-labels::after {
+  content: "1 2 3 4 5 6 7 8 9 10 11 12";
+  position: fixed;
+  top: 10px;
+  left: 55px;
+  right: 55px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff0000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0 calc(var(--grid-column-width) / 2);
+  word-spacing: calc(var(--grid-column-width) + var(--grid-gutter) - 1ch);
+}
