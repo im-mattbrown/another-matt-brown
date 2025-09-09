@@ -47,7 +47,7 @@ export default function CaseStudies() {
       video: "/videos/AMB-Contexto-Work.mp4",
       tags: ["Healthcare", "Portal", "Telemedicine"],
       class: "bg-tidal",
-      link: "/case-studies/tidal",
+      link: "/case-studies/tidals",
     },
   ];
 
