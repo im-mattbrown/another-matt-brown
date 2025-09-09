@@ -414,7 +414,7 @@ export default function Home() {
               <motion.img
                 ref={curatedLogoRef}
                 className="text-2-columns m-1-g height-64"
-                src="/images/logos/ContextoLOGO.png"
+                src="/images/logos/ContextoLogo.png"
                 alt="Curated Logo"
                 initial={{ scale: 0.8, opacity: 0, y: 20 }}
                 animate={
