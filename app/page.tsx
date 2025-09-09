@@ -206,11 +206,10 @@ export default function Home() {
   const heroY = useTransform(scrollYProgress, [0, 0.3], ["0%", "30%"]);
 
   // In view triggers
-  const approachInView = useInView(approachRef, { once: true, threshold: 0.2 });
-  const imageInView = useInView(imageRef, { once: true, threshold: 0.3 });
+  const approachInView = useInView(approachRef, { once: true, amount: 0.2 });
+  const imageInView = useInView(imageRef, { once: true, amount: 0.3 });
   const digitalImageInView = useInView(digitalImageRef, {
     once: true,
-    threshold: 0.3,
   });
 
   const contextoLogoRef = useRef(null);
@@ -219,11 +218,11 @@ export default function Home() {
   // Add these useInView hooks near your other useInView declarations
   const contextoLogoInView = useInView(contextoLogoRef, {
     once: true,
-    threshold: 0.3,
+    amount: 0.3,
   });
   const curatedLogoInView = useInView(curatedLogoRef, {
     once: true,
-    threshold: 0.3,
+    amount: 0.3,
   });
 
   const digitalNativeParagraphs = [
