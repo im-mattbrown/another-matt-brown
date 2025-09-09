@@ -172,8 +172,8 @@ export default function Home() {
     visible: {
       opacity: 1,
       transition: {
-        type: "tween",
-        ease: "easeIn",
+        type: "tween" as const,
+        ease: "easeIn" as const,
       },
     },
     hidden: {
